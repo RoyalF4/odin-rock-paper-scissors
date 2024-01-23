@@ -1,11 +1,3 @@
-const buttons = document.querySelectorAll('button');
-
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        console.log(button.id);
-    })
-})
-
 function getRandom() {
     return Math.floor(Math.random() * 3)
 }
@@ -23,39 +15,42 @@ function getComputerChoice(){
 }
 
 function playGame(playerChoice, compChoice) {
-    playerChoice = playerChoice.toLowerCase();
+    const result = document.querySelector('.result');
+
 
     if(playerChoice === compChoice) {
-        console.log('Tie! Go agane!');
-        return playGame(playerChoice, getComputerChoice());
+        return result.textContent = 'Tie!';
     }
     else if(playerChoice === 'rock' && compChoice === 'paper') {
-        return 'You lose! Paper beats Rock!';
+        return result.textContent = 'You lose! Paper beats Rock!';
     }
     else if(playerChoice === 'rock' && compChoice === 'scissors') {
-        return 'You win! Rock beats Scissors!';
+        return result.textContent = 'You win! Rock beats Scissors!';
     }
     else if(playerChoice === 'scissors' && compChoice === 'paper') {
-        return 'You win! Scissors beats Paper!';
+        return result.textContent = 'You win! Scissors beats Paper!';
     }
     else if(playerChoice === 'scissors' && compChoice === 'rock') {
-        return 'You lose! Rock beats Scissors!';
+        return result.textContent = 'You lose! Rock beats Scissors!';
     }
     else if(playerChoice === 'paper' && compChoice === 'scissors') {
-        return 'You lose! Scissors beats Paper!';
+        return result.textContent = 'You lose! Scissors beats Paper!';
     }else {
-        return 'You Win! Paper beats Rock!';
+        return result.textContent = 'You Win! Paper beats Rock!';
     }
 }
 
-function game() {
-    
-    const playerChoice = prompt("Rock, Paper, or Scissors?");
-    const compChoice = getComputerChoice();
 
-    console.log(playGame(playerChoice, compChoice))
-    
-}
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const playerChoice = button.id;
+        const compChoice = getComputerChoice();
+        console.log(playerChoice, compChoice)
+        playGame(playerChoice, compChoice);
+    })
+})
 
 // game();
 
