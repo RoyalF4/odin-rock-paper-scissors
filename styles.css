@@ -5,3 +5,13 @@
     margin-top: 500px;
     gap: 10px;
 }
+
+.choice {
+    width: 100px;
+    height: 100px;
+}
+
+.winner {
+    font-size: 100px;
+    color: red;
+}
