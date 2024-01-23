@@ -1,3 +1,11 @@
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(button.id);
+    })
+})
+
 function getRandom() {
     return Math.floor(Math.random() * 3)
 }
@@ -41,13 +49,13 @@ function playGame(playerChoice, compChoice) {
 }
 
 function game() {
-    for(let i = 0; i < 5; i++){
-        const playerChoice = prompt("Rock, Paper, or Scissors?");
-        const compChoice = getComputerChoice();
+    
+    const playerChoice = prompt("Rock, Paper, or Scissors?");
+    const compChoice = getComputerChoice();
 
-        console.log(playGame(playerChoice, compChoice))
-    }
+    console.log(playGame(playerChoice, compChoice))
+    
 }
 
-game();
+// game();
 
